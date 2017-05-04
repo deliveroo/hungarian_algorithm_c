@@ -1,4 +1,4 @@
-require 'hungarian_algorithm_c.so'
+require_relative './hungarian_algorithm_c.so'
 
 module HungarianAlgorithmC
   class << self
