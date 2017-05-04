@@ -53,8 +53,8 @@ VALUE pairs(VALUE self, VALUE flattened_array_ruby, VALUE row_size_val) {
 
   int index;
   for (index = 0; index < array_size; index++) {
-    double element = 100 * NUM2DBL(rb_ary_entry(flattened_array_ruby, index));
-    int rounded_element = element;
+    long double element = 100 * NUM2DBL(rb_ary_entry(flattened_array_ruby, index));
+    long long int rounded_element = element;
     array_c[index] = rounded_element;
   }
 

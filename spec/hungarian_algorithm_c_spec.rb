@@ -41,6 +41,22 @@ RSpec.describe HungarianAlgorithmC do
           [2, 1]
         ])
       end
+
+      context 'with very large numbers' do
+        let(:matrix_with_costs) { [
+          [4, 1, 7],
+          [Float::INFINITY, 3, 9],
+          [1, 2, 13]
+        ] }
+
+        it 'should output minimum cost pairs' do
+          should match_array([
+            [0, 2],
+            [1, 0],
+            [2, 1]
+          ])
+        end
+      end
     end
 
     context '4x4 array' do
@@ -58,6 +74,24 @@ RSpec.describe HungarianAlgorithmC do
           [2, 3],
           [3, 0]
         ])
+      end
+
+      context 'with very large numbers' do
+        let(:matrix_with_costs) { [
+          [Float::INFINITY, 3, 10000000000000000000000000000000000, 3],
+          [10, 2, Float::INFINITY, 6],
+          [10, 3, 34, Float::INFINITY],
+          [99999999999999999999999, 13, 15, 6000000000000000]
+        ] }
+
+        it 'should output minimum cost pairs' do
+          should match_array([
+            [0, 2],
+            [1, 1],
+            [2, 3],
+            [3, 0]
+          ])
+        end
       end
     end
   end
