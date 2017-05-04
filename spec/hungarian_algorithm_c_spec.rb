@@ -1,3 +1,4 @@
+require_relative './spec_helper'
 require_relative '../lib/hungarian_algorithm_c'
 
 RSpec.describe HungarianAlgorithmC do

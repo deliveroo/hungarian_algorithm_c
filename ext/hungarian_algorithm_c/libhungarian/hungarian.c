@@ -4,21 +4,21 @@
  ** libhungarian by Cyrill Stachniss, 2004
  **
  **
- ** Solving the Minimum Assignment Problem using the 
+ ** Solving the Minimum Assignment Problem using the
  ** Hungarian Method.
  **
  ** ** This file may be freely copied and distributed! **
  **
- ** Parts of the used code was originally provided by the 
+ ** Parts of the used code was originally provided by the
  ** "Stanford GraphGase", but I made changes to this code.
- ** As asked by  the copyright node of the "Stanford GraphGase", 
+ ** As asked by  the copyright node of the "Stanford GraphGase",
  ** I hereby proclaim that this file are *NOT* part of the
  ** "Stanford GraphGase" distrubition!
  **
  ** This file is distributed in the hope that it will be useful,
- ** but WITHOUT ANY WARRANTY; without even the implied 
+ ** but WITHOUT ANY WARRANTY; without even the implied
  ** warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
- ** PURPOSE.  
+ ** PURPOSE.
  **
  ********************************************************************
  ********************************************************************/
@@ -56,13 +56,13 @@ void hungarian_print_costmatrix(hungarian_problem_t* p) {
 }
 
 void hungarian_print_status(hungarian_problem_t* p) {
-  
+
   fprintf(stderr,"cost:\n");
   hungarian_print_costmatrix(p);
 
   fprintf(stderr,"assignment:\n");
   hungarian_print_assignment(p);
-  
+
 }
 
 int hungarian_imax(int a, int b) {
@@ -74,15 +74,15 @@ int hungarian_init(hungarian_problem_t* p, int** cost_matrix, int rows, int cols
   int i,j, org_cols, org_rows;
   int max_cost;
   max_cost = 0;
-  
+
   org_cols = cols;
   org_rows = rows;
 
-  // is the number of cols  not equal to number of rows ? 
+  // is the number of cols  not equal to number of rows ?
   // if yes, expand with 0-cols / 0-cols
   rows = hungarian_imax(cols, rows);
   cols = rows;
-  
+
   p->num_rows = rows;
   p->num_cols = cols;
 
@@ -116,9 +116,9 @@ int hungarian_init(hungarian_problem_t* p, int** cost_matrix, int rows, int cols
   else if (mode == HUNGARIAN_MODE_MINIMIZE_COST) {
     // nothing to do
   }
-  else 
+  else
     fprintf(stderr,"%s: unknown mode. Mode was set to HUNGARIAN_MODE_MINIMIZE_COST !\n", __FUNCTION__);
-  
+
   return rows;
 }
 
@@ -196,7 +196,7 @@ void hungarian_solve(hungarian_problem_t* p)
   for (l=0;l<n;l++)
     {
       s=p->cost[0][l];
-      for (k=1;k<m;k++) 
+      for (k=1;k<m;k++)
 	if (p->cost[k][l]<s)
 	  s=p->cost[k][l];
       cost+=s;
@@ -239,7 +239,7 @@ void hungarian_solve(hungarian_problem_t* p)
       ;
     }
   // End initial state 16
- 
+
   // Begin Hungarian algorithm 18
   if (t==0)
     goto done;
@@ -286,7 +286,7 @@ void hungarian_solve(hungarian_problem_t* p)
 	      // End explore node q of the forest 19
 	      q++;
 	    }
- 
+
 	  // Begin introduce a new zero into the matrix 21
 	  s=INF;
 	  for (l=0;l<n;l++)
@@ -303,7 +303,7 @@ void hungarian_solve(hungarian_problem_t* p)
 		    // Begin look at a new zero 22
 		    k=slack_row[l];
 		    if (verbose)
-		      fprintf(stderr, 
+		      fprintf(stderr,
 			     "Decreasing uncovered elements by %d produces zero at [%d,%d]\n",
 			     s,k,l);
 		    if (row_mate[l]<0)

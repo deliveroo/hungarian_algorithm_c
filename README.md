@@ -1,7 +1,5 @@
 # HungarianAlgorithmC
 
-[![CircleCI](https://circleci.com/gh/deliveroo/hungarian_algorithm_c.svg?style=svg)](https://circleci.com/gh/deliveroo/hungarian_algorithm_c)
-
 A Ruby gem that computes the [Hungarian Algorithm](https://en.wikipedia.org/wiki/Hungarian_algorithm) in C.
 
 ## Installation
