@@ -44,6 +44,8 @@ HungarianAlgorithmC.find_pairings(costs)
 #=> [[0, 0], [1, 2], [2, 1]]
 ```
 
+**Note**: Your cost matrix should not have `Float::INFINITY` or _very very large_ numbers as those will not be interpreted appropriately [here](ext/hungarian_algorithm_c/hungarian_algorithm_c.c#56).
+
 ## Acknowledgements
 
 The C code uses the implementation by [Cyrill Stachniss](ext/hungarian_algorithm_c/libhungarian).
