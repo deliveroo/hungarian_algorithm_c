@@ -368,19 +368,19 @@ void hungarian_solve(hungarian_problem_t* p)
   for (k=0;k<m;k++)
     for (l=0;l<n;l++)
       if (p->cost[k][l]<row_dec[k]-col_inc[l])
-	exit(0);
+        return; /*exit(0);*/
   for (k=0;k<m;k++)
     {
       l=col_mate[k];
       if (l<0 || p->cost[k][l]!=row_dec[k]-col_inc[l])
-	exit(0);
+        return; /*exit(0);*/
     }
   k=0;
   for (l=0;l<n;l++)
     if (col_inc[l])
       k++;
   if (k>m)
-    exit(0);
+    return; /*exit(0);*/
   // End doublecheck the solution 23
   // End Hungarian algorithm 18
 
