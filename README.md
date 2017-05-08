@@ -48,4 +48,4 @@ HungarianAlgorithmC.find_pairings(costs)
 
 ## Acknowledgements
 
-The C code uses the implementation by [Cyrill Stachniss](ext/hungarian_algorithm_c/libhungarian).
+The C code uses the implementation by [Cyrill Stachniss](ext/hungarian_algorithm_c/libhungarian). The one change made is that all `exit(0)` calls are commented out.
