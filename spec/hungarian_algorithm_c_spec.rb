@@ -26,7 +26,7 @@ RSpec.describe HungarianAlgorithmC do
         ])
       end
 
-      context 'matrix contains Floa::INFINITY' do
+      context 'matrix contains Float::INFINITY' do
         let(:matrix_with_costs) { [
           [4, 3],
           [3, Float::INFINITY]
