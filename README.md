@@ -8,7 +8,7 @@ Add the following to your [Gemfile](http://tosbourn.com/what-is-the-gemfile/):
 
 ```ruby
 # Gemfile
-gem 'hungarian_algorithm_c', github: 'deliveroo/hungarian_algorithm_c'
+gem 'hungarian_algorithm_c'
 ```
 
 Run `bundle install`.
@@ -44,7 +44,7 @@ HungarianAlgorithmC.find_pairings(costs)
 #=> [[0, 0], [1, 2], [2, 1]]
 ```
 
-**Note**: Your cost matrix should not have `Float::INFINITY` or _very very large_ numbers as those will not be interpreted appropriately [here](ext/hungarian_algorithm_c/hungarian_algorithm_c.c#L56).
+**Note**: Costs are held in the C code using `signed long long int`. If your matrix has values outside the range of the data type (e.g. `Float::INFINITY`, `BigNumber::INFINITY`, `-1e19`), they will be capped to the closest limit i.e. positive or negative 9_223_372_036_854_775_807.
 
 ## Acknowledgements
 
